@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../model/tooltip_widget_model.dart';
+import 'package:overlay_tooltip/src/model/tooltip_widget_model.dart';
 
 abstract class TooltipControllerImpl {
-  List<OverlayTooltipModel> _playableWidgets = [];
-  StreamController<OverlayTooltipModel?> _widgetsPlayController =
+  final List<OverlayTooltipModel> _playableWidgets = [];
+  final StreamController<OverlayTooltipModel?> _widgetsPlayController =
       StreamController.broadcast();
 
   bool _playActive = false;
@@ -49,7 +49,7 @@ abstract class TooltipControllerImpl {
     _widgetsPlayController.sink.add(_playableWidgets[_nextPlayIndex]);
   }
 
-  void setStartWhen(
+  Future<void> setStartWhen(
       Future<bool> Function(int initializedWidgetLength) callback) async {
     _startWhenCallback = callback;
   }
@@ -80,7 +80,7 @@ abstract class TooltipControllerImpl {
     _onDoneCallback?.call();
   }
 
-  void addPlayableWidget(OverlayTooltipModel model) async {
+  Future<void> addPlayableWidget(OverlayTooltipModel model) async {
     if (_playableWidgets
         .map((e) => e.displayIndex)
         .toList()

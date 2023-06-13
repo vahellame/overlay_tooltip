@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
-import '../constants/enums.dart';
-import '../impl.dart';
-import '../model/tooltip_widget_model.dart';
+import 'package:overlay_tooltip/src/constants/enums.dart';
+import 'package:overlay_tooltip/src/impl.dart';
+import 'package:overlay_tooltip/src/model/tooltip_widget_model.dart';
 
 abstract class OverlayTooltipItemImpl extends StatefulWidget {
+
+  const OverlayTooltipItemImpl(
+      {required this.displayIndex, required this.child, required this.tooltip, required this.tooltipVerticalPosition, required this.tooltipHorizontalPosition, Key? key})
+      : super(key: key);
   final Widget child;
   final Widget Function(TooltipController) tooltip;
   final TooltipVerticalPosition tooltipVerticalPosition;
   final TooltipHorizontalPosition tooltipHorizontalPosition;
   final int displayIndex;
-
-  OverlayTooltipItemImpl(
-      {Key? key,
-      required this.displayIndex,
-      required this.child,
-      required this.tooltip,
-      required this.tooltipVerticalPosition,
-      required this.tooltipHorizontalPosition})
-      : super(key: key);
 
   @override
   _OverlayTooltipItemImplState createState() => _OverlayTooltipItemImplState();

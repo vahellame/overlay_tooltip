@@ -1,0 +1,184 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
+  plugins:
+    dart_code_metrics
+  exclude:
+    - "**/generated/**"
+    - "**/*.g.dart"
+    - "**/firebase_options.dart"
+    - "test/**"
+
+linter:
+  rules:
+    depend_on_referenced_packages: false
+    prefer_const_literals_to_create_immutables: true
+    prefer_const_constructors: true
+    avoid_print: false
+    prefer_single_quotes: true
+    overridden_fields: true
+    library_private_types_in_public_api: true
+    no_leading_underscores_for_library_prefixes: true
+    always_use_package_imports: true
+    avoid_empty_else: true
+    always_put_required_named_parameters_first: true
+    avoid_js_rounded_ints: true
+    avoid_multiple_declarations_per_line: true
+    avoid_returning_null_for_void: true
+    avoid_types_on_closure_parameters: true
+    avoid_void_async: true
+    constant_identifier_names: true
+    directives_ordering: true
+    no_leading_underscores_for_local_identifiers: true
+    noop_primitive_operations: true
+    prefer_constructors_over_static_methods: true
+    prefer_contains: true
+    prefer_final_in_for_each: true
+    prefer_null_aware_method_calls: true
+    prefer_spread_collections: true
+    unnecessary_await_in_return: true
+    use_named_constants: true
+    sort_constructors_first: true
+
+    always_declare_return_types: true
+    iterable_contains_unrelated_type: true
+    list_remove_unrelated_type: true
+    literal_only_boolean_expressions: true
+    no_adjacent_strings_in_list: true
+    no_duplicate_case_values: true
+    no_logic_in_create_state: true
+    prefer_void_to_null: true
+    throw_in_finally: true
+    unnecessary_statements: true
+    unrelated_type_equality_checks: true
+    use_build_context_synchronously: false
+    avoid_shadowing_type_parameters: true
+    avoid_unnecessary_containers: true
+    avoid_unused_constructor_parameters: true
+    await_only_futures: true
+    camel_case_extensions: true
+    camel_case_types: true
+    cast_nullable_to_non_nullable: true
+    combinators_ordering: true
+    curly_braces_in_flow_control_structures: true
+    do_not_use_environment: true
+    empty_catches: true
+    empty_constructor_bodies: true
+    exhaustive_cases: true
+    file_names: true
+    leading_newlines_in_multiline_strings: true
+    prefer_for_elements_to_map_fromIterable: false
+    avoid_types_as_parameter_names: true
+
+    hash_and_equals: true
+    non_constant_identifier_names: true
+    null_check_on_nullable_type_parameter: true
+    prefer_generic_function_type_aliases: true
+    package_prefixed_library_names: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_iterable_whereType: true
+    prefer_typing_uninitialized_variables: true
+    provide_deprecation_message: true
+    unnecessary_overrides: true
+    valid_regexps: true
+    void_checks: true
+    always_require_non_null_named_parameters: true
+    annotate_overrides: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_init_to_null: true
+    avoid_null_checks_in_equality_operators: true
+    avoid_renaming_method_parameters: true
+    avoid_return_types_on_setters: true
+    avoid_single_cascade_in_expression_statements: true
+    control_flow_in_finally: true
+    empty_statements: true
+    implementation_imports: true
+    library_names: true
+    library_prefixes: true
+    null_closures: true
+    package_names: true
+    prefer_adjacent_string_concatenation: true
+    prefer_collection_literals: true
+    prefer_conditional_assignment: true
+    prefer_final_fields: true
+    prefer_function_declarations_over_variables: true
+    prefer_if_null_operators: true
+    prefer_initializing_formals: true
+    prefer_inlined_adds: true
+    prefer_interpolation_to_compose_strings: true
+    prefer_is_not_operator: true
+    prefer_null_aware_operators: true
+    recursive_getters: true
+    slash_for_doc_comments: true
+    type_init_formals: true
+    unnecessary_brace_in_string_interps: true
+    unnecessary_const: true
+    unnecessary_constructor_name: true
+    unnecessary_getters_setters: true
+    unnecessary_late: true
+    unnecessary_new: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_null_in_if_null_operators: true
+    unnecessary_nullable_for_final_variable_declarations: true
+    unnecessary_string_escapes: true
+    unnecessary_string_interpolations: true
+    unnecessary_this: true
+    use_function_type_syntax_for_parameters: true
+    use_rethrow_when_possible: true
+    avoid_web_libraries_in_flutter: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    sized_box_for_whitespace: true
+    sort_child_properties_last: true
+    use_full_hex_values_for_flutter_colors: true
+    use_key_in_widget_constructors: true
+
+dart_code_metrics:
+  rules:
+    prefer-trailing-comma: true
+    no-equal-then-else: true
+    avoid-dynamic: true
+    avoid-global-state: true
+    avoid-missing-enum-constant-in-map: true
+    avoid-redundant-async: true
+    avoid-throw-in-catch-block: true
+    avoid-unnecessary-type-assertions: true
+    avoid-unnecessary-type-casts: true
+    avoid-unrelated-type-assertions: true
+    double-literal-format: true
+    no-boolean-literal-compare: true
+    no-object-declaration: true
+    prefer-commenting-analyzer-ignores: true
+    prefer-correct-type-name: true
+    prefer-enums-by-name: true
+    prefer-iterable-of: true
+    prefer-first: true
+    prefer-last: true
+    avoid-shrink-wrap-in-lists: true
+    avoid-unnecessary-setstate: true
+    avoid-unused-parameters: true
+    avoid-nested-conditional-expressions: true
+    avoid-duplicate-exports: true
+    avoid-double-slash-imports: true
+    avoid-cascade-after-if-null: true
+    member-ordering:
+      order:
+        - constructors
+        - named-constructor
+        - fields
+        - methods
+      widgets-order:
+        - constructor
+        - named-constructor
+        - fields
+        - init-state-method
+        - build-method
+        - methods
+        - dispose-method
+      arguments-ordering:
+        child-last: false
+
+

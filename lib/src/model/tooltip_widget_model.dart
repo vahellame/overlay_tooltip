@@ -1,14 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:overlay_tooltip/src/constants/enums.dart';
-import '../impl.dart';
+import 'package:overlay_tooltip/src/impl.dart';
 
 class OverlayTooltipModel {
-  final Widget child;
-  final Widget Function(TooltipController) tooltip;
-  final GlobalKey widgetKey;
-  final TooltipVerticalPosition vertPosition;
-  final TooltipHorizontalPosition horPosition;
-  final int displayIndex;
 
   OverlayTooltipModel(
       {required this.child,
@@ -17,6 +11,12 @@ class OverlayTooltipModel {
       required this.vertPosition,
       required this.horPosition,
       required this.displayIndex});
+  final Widget child;
+  final Widget Function(TooltipController) tooltip;
+  final GlobalKey widgetKey;
+  final TooltipVerticalPosition vertPosition;
+  final TooltipHorizontalPosition horPosition;
+  final int displayIndex;
 
   @override
   bool operator ==(Object other) =>

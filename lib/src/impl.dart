@@ -1,35 +1,16 @@
 import 'package:flutter/material.dart';
-import 'core/overlay_tooltip_scaffold.dart';
-import 'constants/enums.dart';
-import 'core/tooltip_controller.dart';
-import 'core/overlay_tooltip_item.dart';
+import 'package:overlay_tooltip/src/constants/enums.dart';
+import 'package:overlay_tooltip/src/core/overlay_tooltip_item.dart';
+import 'package:overlay_tooltip/src/core/overlay_tooltip_scaffold.dart';
+import 'package:overlay_tooltip/src/core/tooltip_controller.dart';
 
 class TooltipController extends TooltipControllerImpl {}
 
 class OverlayTooltipScaffold extends OverlayTooltipScaffoldImpl {
-  final TooltipController controller;
-
-  /// This future boolean function exposes the amount of instantiated
-  /// widgets with tooltips, this future bool functions tells the overlay
-  /// when to start automatically
-  final Future<bool> Function(int instantiatedWidgetLength)? startWhen;
-
-  final Widget Function(BuildContext context) builder;
-
-  final Color overlayColor;
-
-  final Duration tooltipAnimationDuration;
-
-  final Curve tooltipAnimationCurve;
-
-  // Set a preferred overlay widget.
-  // This can be useful for gesture detection on your custom overlays
-  final Widget? preferredOverlay;
-
   OverlayTooltipScaffold({
-    Key? key,
     required this.controller,
     required this.builder,
+    Key? key,
     this.overlayColor = Colors.black54,
     this.startWhen,
     this.tooltipAnimationDuration = const Duration(milliseconds: 500),
@@ -45,6 +26,31 @@ class OverlayTooltipScaffold extends OverlayTooltipScaffoldImpl {
           tooltipAnimationCurve: tooltipAnimationCurve,
           preferredOverlay: preferredOverlay,
         );
+  @override
+  final TooltipController controller;
+
+  /// This future boolean function exposes the amount of instantiated
+  /// widgets with tooltips, this future bool functions tells the overlay
+  /// when to start automatically
+  @override
+  final Future<bool> Function(int instantiatedWidgetLength)? startWhen;
+
+  @override
+  final Widget Function(BuildContext context) builder;
+
+  @override
+  final Color overlayColor;
+
+  @override
+  final Duration tooltipAnimationDuration;
+
+  @override
+  final Curve tooltipAnimationCurve;
+
+  // Set a preferred overlay widget.
+  // This can be useful for gesture detection on your custom overlays
+  @override
+  final Widget? preferredOverlay;
 
   static OverlayTooltipScaffoldImplState? of(BuildContext context) {
     final OverlayTooltipScaffoldImplState? result =
@@ -65,36 +71,41 @@ class OverlayTooltipScaffold extends OverlayTooltipScaffoldImpl {
 }
 
 class OverlayTooltipItem extends OverlayTooltipItemImpl {
+  const OverlayTooltipItem({
+    required this.displayIndex,
+    required this.child,
+    required this.tooltip,
+    Key? key,
+    this.tooltipVerticalPosition = TooltipVerticalPosition.bottom,
+    this.tooltipHorizontalPosition = TooltipHorizontalPosition.withWidget,
+  }) : super(
+          key: key,
+          child: child,
+          displayIndex: displayIndex,
+          tooltip: tooltip,
+          tooltipVerticalPosition: tooltipVerticalPosition,
+          tooltipHorizontalPosition: tooltipHorizontalPosition,
+        );
+  @override
   final Widget child;
 
   /// The tooltip widget to be displayed with the main widget
+  @override
   final Widget Function(TooltipController) tooltip;
 
   /// The vertical positioning of the tooltip with relation to the widget
   /// [BOTTOM] or [TOP]
+  @override
   final TooltipVerticalPosition tooltipVerticalPosition;
 
   /// The horizontal positioning of the tooltip
   /// [WITH_WIDGET] default, this aligns the tooltip to the alignment
   /// of the main widget.
   /// Other options are [LEFT], [RIGHT], [CENTER]
+  @override
   final TooltipHorizontalPosition tooltipHorizontalPosition;
 
   /// This determines the order of display when overlay is started
+  @override
   final int displayIndex;
-
-  OverlayTooltipItem(
-      {Key? key,
-      required this.displayIndex,
-      required this.child,
-      required this.tooltip,
-      this.tooltipVerticalPosition = TooltipVerticalPosition.BOTTOM,
-      this.tooltipHorizontalPosition = TooltipHorizontalPosition.WITH_WIDGET})
-      : super(
-            key: key,
-            child: child,
-            displayIndex: displayIndex,
-            tooltip: tooltip,
-            tooltipVerticalPosition: tooltipVerticalPosition,
-            tooltipHorizontalPosition: tooltipHorizontalPosition);
 }

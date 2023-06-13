@@ -1,3 +1,3 @@
-enum TooltipVerticalPosition { TOP, BOTTOM }
+enum TooltipVerticalPosition { top, bottom }
 
-enum TooltipHorizontalPosition { LEFT, RIGHT, WITH_WIDGET, CENTER }
+enum TooltipHorizontalPosition { left, right, withWidget, center }
