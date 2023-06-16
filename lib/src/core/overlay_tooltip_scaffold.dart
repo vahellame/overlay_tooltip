@@ -94,8 +94,15 @@ class _TooltipLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var topLeft = model.widgetKey.globalPaintBounds!.topLeft;
-    var bottomRight = model.widgetKey.globalPaintBounds!.bottomRight;
+    late Offset topLeft;
+    late Offset bottomRight;
+    if (model.widgetKey.globalPaintBounds != null) {
+      topLeft = model.widgetKey.globalPaintBounds!.topLeft;
+      bottomRight = model.widgetKey.globalPaintBounds!.bottomRight;
+    } else {
+      topLeft = Offset.zero;
+      bottomRight = Offset.zero;
+    }
 
     return LayoutBuilder(
       builder: (context, size) {

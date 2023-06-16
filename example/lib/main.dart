@@ -110,7 +110,7 @@ class _MySamplePageState extends State<MySamplePage> {
             padding: const EdgeInsets.only(bottom: 15),
             child: MTooltip(title: 'Floating button', controller: controller),
           ),
-          tooltipVerticalPosition: TooltipVerticalPosition.TOP,
+          tooltipVerticalPosition: TooltipVerticalPosition.top,
           child: FloatingActionButton(
             backgroundColor: Colors.purple,
             onPressed: () {},
