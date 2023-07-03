@@ -73,6 +73,7 @@ class _MySamplePageState extends State<MySamplePage> {
         ),
       ),
       builder: (context) => Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           toolbarHeight: 70,
